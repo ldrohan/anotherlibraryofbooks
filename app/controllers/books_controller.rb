@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
-	before_action :set_book, only: [:show, :update, :delete]
+	before_action :set_book, only: [:show, :update, :destroy]
 	respond_to :json
+	layout :false
 	def index
 		respond_with Book.all
 	end
@@ -22,11 +23,11 @@ class BooksController < ApplicationController
 	end	
 	
 	private
-	def book_params
-		params.require(:book).permit(:title, :author, :isbn, :description)
-	end
-	
 	def set_book
 		@book = Book.find(params[:id])
+	end
+
+	def book_params
+		params.require(:book).permit(:title, :author, :isbn, :description)
 	end
 end

@@ -5,59 +5,24 @@ Rails.application.routes.draw do
   resources :libraries do
     resources :books
   end
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end
+
+
+#  Prefix Verb   URI Pattern                                     Controller#Action
+#              root GET    /                                               pages#index
+#     library_books GET    /libraries/:library_id/books(.:format)          books#index
+#                   POST   /libraries/:library_id/books(.:format)          books#create
+#  new_library_book GET    /libraries/:library_id/books/new(.:format)      books#new
+# edit_library_book GET    /libraries/:library_id/books/:id/edit(.:format) books#edit
+#      library_book GET    /libraries/:library_id/books/:id(.:format)      books#show
+#                   PATCH  /libraries/:library_id/books/:id(.:format)      books#update
+#                   PUT    /libraries/:library_id/books/:id(.:format)      books#update
+#                   DELETE /libraries/:library_id/books/:id(.:format)      books#destroy
+#         libraries GET    /libraries(.:format)                            libraries#index
+#                   POST   /libraries(.:format)                            libraries#create
+#       new_library GET    /libraries/new(.:format)                        libraries#new
+#      edit_library GET    /libraries/:id/edit(.:format)                   libraries#edit
+#           library GET    /libraries/:id(.:format)                        libraries#show
+#                   PATCH  /libraries/:id(.:format)                        libraries#update
+#                   PUT    /libraries/:id(.:format)                        libraries#update
+#                   DELETE /libraries/:id(.:format)                        libraries#destroy
